@@ -3,4 +3,8 @@ pandas==2.2.0
 plotly==5.18.0
 numpy==1.26.3
 openpyxl==3.1.2
-xlsxwriter==3.1.9 
+XlsxWriter==3.1.9
+python-dateutil==2.8.2
+pytz==2024.1
+gspread==5.12.3
+oauth2client==4.1.3 
