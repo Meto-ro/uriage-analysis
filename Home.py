@@ -191,33 +191,34 @@ st.markdown("""
     }
 
     /* ラジオボタンのスタイル */
-    div.row-widget.stRadio > div {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
+    .stRadio > div {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 1rem !important;
     }
     
-    div.row-widget.stRadio > div[role="radiogroup"] > label {
-        padding: 0.5rem 1rem;
-        background-color: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 4px;
-        cursor: pointer;
-        color: #2c3e50;
-        font-weight: 500;
-        font-size: 1rem;
+    .stRadio > div[role="radiogroup"] > label {
+        padding: 0.5rem 1rem !important;
+        background-color: white !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 4px !important;
+        cursor: pointer !important;
+        color: #2c3e50 !important;
+        font-weight: 500 !important;
+        font-size: 1rem !important;
     }
     
-    div.row-widget.stRadio > div[role="radiogroup"] > label:hover {
-        background-color: #f8f9fa;
+    .stRadio > div[role="radiogroup"] > label:hover {
+        background-color: #f8f9fa !important;
     }
     
-    div.row-widget.stRadio > div[role="radiogroup"] > label[data-baseweb="radio"] > div:first-child {
-        display: none;
+    .stRadio > div[role="radiogroup"] > label > div:first-child {
+        display: none !important;
     }
     
-    div.row-widget.stRadio > div[role="radiogroup"] > label > div:last-child {
-        margin: 0;
+    .stRadio > div[role="radiogroup"] > label > div:last-child {
+        margin: 0 !important;
     }
 
     /* データフレームのデザイン改善 */
