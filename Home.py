@@ -190,32 +190,34 @@ st.markdown("""
         color: var(--text-light);
     }
 
-    /* ラジオボタンのデザイン改善 */
+    /* ラジオボタンのスタイル */
     div.row-widget.stRadio > div {
         flex-direction: row;
         align-items: center;
-        gap: 0.75rem;
-        background: var(--surface);
-        padding: 1rem;
-        border-radius: 15px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        gap: 1rem;
     }
+    
     div.row-widget.stRadio > div[role="radiogroup"] > label {
-        background: var(--background);
-        padding: 0.75rem 1.5rem;
-        border-radius: 10px;
-        border: 1px solid var(--primary);
+        padding: 0.5rem 1rem;
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
         cursor: pointer;
-        transition: all 0.2s ease;
+        color: #2c3e50;
         font-weight: 500;
+        font-size: 1rem;
     }
+    
     div.row-widget.stRadio > div[role="radiogroup"] > label:hover {
-        background: var(--primary-light);
-        transform: translateY(-1px);
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #f8f9fa;
     }
-    div.row-widget.stRadio > div[role="radiogroup"] > label[data-baseweb="radio"] > div {
+    
+    div.row-widget.stRadio > div[role="radiogroup"] > label[data-baseweb="radio"] > div:first-child {
         display: none;
+    }
+    
+    div.row-widget.stRadio > div[role="radiogroup"] > label > div:last-child {
+        margin: 0;
     }
 
     /* データフレームのデザイン改善 */
