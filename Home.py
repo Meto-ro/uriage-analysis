@@ -28,7 +28,7 @@ DEPT_COLORS = {
 def check_password():
     """パスワード認証を行う関数"""
     def password_entered():
-        if st.session_state["password"] == "esco2024":  # パスワードを設定
+        if st.session_state["password"] == "esco2025":  # パスワードを設定
             st.session_state["password_correct"] = True
         else:
             st.session_state["password_correct"] = False
@@ -82,7 +82,7 @@ st.sidebar.markdown("""
 """)
 
 st.sidebar.markdown("---")
-st.sidebar.info("© 2024 商品本部PS課")
+st.sidebar.info("© 2025 商品本部PS課")
 
 # メインページのコンテンツ
 st.title("エスコ売上実績分析ダッシュボード")
@@ -311,13 +311,19 @@ def load_sample_data():
 # Demo data or uploaded data
 if uploaded_file is not None:
     try:
-        # Determine file type and read accordingly
-        if uploaded_file.name.endswith('.csv'):
-            df = pd.read_csv(uploaded_file)
+        # ファイル名のチェック
+        if "エスコ" not in uploaded_file.name or "衞藤" not in uploaded_file.name:
+            st.error("承認されていないファイル形式です")
+            df = load_sample_data()
+            df = process_data(df)
         else:
-            df = pd.read_excel(uploaded_file)
-        df = process_data(df)
-        st.success("データが正常に読み込まれました！")
+            # Determine file type and read accordingly
+            if uploaded_file.name.endswith('.csv'):
+                df = pd.read_csv(uploaded_file)
+            else:
+                df = pd.read_excel(uploaded_file)
+            df = process_data(df)
+            st.success("データが正常に読み込まれました！")
     except Exception as e:
         st.error(f"エラーが発生しました: {e}")
         df = load_sample_data()

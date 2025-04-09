@@ -108,7 +108,7 @@ def export_to_gsheet(df_grouped, month, dept_sales, group_sales, cross_analysis)
 def check_password():
     """パスワード認証を行う関数"""
     def password_entered():
-        if st.session_state["password"] == "esco2024":  # パスワードを設定
+        if st.session_state["password"] == "esco2025":  # パスワードを設定
             st.session_state["password_correct"] = True
         else:
             st.session_state["password_correct"] = False
@@ -319,6 +319,11 @@ def main():
     
     if uploaded_file:
         try:
+            # ファイル名のチェック
+            if "エスコ" not in uploaded_file.name or "衞藤" not in uploaded_file.name:
+                st.error("承認されていないファイル形式です")
+                st.stop()
+            
             # 全ての列を一旦文字列として読み込む
             df = pd.read_excel(
                 uploaded_file,
